@@ -55,7 +55,7 @@ classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metric
 
 history = classifier.fit(X_train, y_train,
               batch_size=32,
-              epochs=20,
+              epochs=30,
               validation_data=(X_val, y_val),
               shuffle=True)
 print(history.history.keys())
@@ -93,7 +93,7 @@ with open("LAST.json", "w") as json_file:
     
 from keras.utils import plot_model
 import pydot
-pydot.find_graphviz()
+#pydot.find_graphviz()
 plot_model(classifier,show_shapes=True, to_file='LAST.png')    
 # serialize weights to HDF5
 classifier.save_weights("LAST.h5");

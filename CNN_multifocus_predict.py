@@ -9,12 +9,12 @@ Created on Sun Nov 24 17:21:37 2019
 import scipy
 import scipy.io as sio
 from keras.models import model_from_json
-json_file = open("VGG16dummy_split.json", "r")
+json_file = open("LAST.json", "r")
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 # load weights into new model
-loaded_model.load_weights("VGG16dummy_split.h5")
+loaded_model.load_weights("LAST.h5")
 print("Loaded model from disk")
 
 #OPTION 2
@@ -32,8 +32,8 @@ import os
 import time
 import glob
 # Load an color image in grayscale
-img1= cv2.imread('C:/Users/dida/Desktop/SXOLI/mf_dataset_clean/mis/mis_8/lab1.bmp',0)
-img2= cv2.imread('C:/Users/dida/Desktop/SXOLI/mf_dataset_clean/mis/mis_8/lab2.bmp',0)
+img1= cv2.imread('home/psinos/multifocus_CNN/mf_dataset_clean/mis/mis_8/lab1.bmp',0)
+img2= cv2.imread('home/psinos/multifocus_CNN/mf_dataset_clean/mis/mis_8/lab2.bmp',0)
 
 
 
@@ -136,8 +136,8 @@ for i in range(0,height-sheight,1):
         #cv2.imshow('image',fused)
         #cv2.waitKey(0)
         #cv2.destroyAllWindows()
-path1 = 'C:/Users/dida/Desktop/example/all_binary2'
-path2 = 'C:/Users/dida/Desktop/example/all_fused2'
+path1 = '/home/psinos/multifocus_CNN/all_binary2'
+path2 = '/home/psinos/multifocus_CNN/all_fused2'
 cv2.imwrite(os.path.join(path1 ,'mis8.png'), binary)
 cv2.imwrite(os.path.join(path2 ,'mis8.png'), fused)
 end = time.time()
